@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" href="bootstrap.min.css">-->
+    <title>Title</title>
+
+</head>
+<body>
+<div id="root">
+
+    <div class="app">
+        <div class="header">
+            <h1 class="title">todos</h1>
+            <input type="text" class="new-todo" placeholder="what needs to be done?">
+        </div>
+        <div class="main">
+            <input type="checkbox" class="toggle-all">
+
+            <ul class="list">
+                <li class="item">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label class="text">test</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span class="count">
+                <strong>1</strong>
+                <span></span>
+                <span>item</span>
+                <span>left</span>
+
+            </span>
+            <ul class="filters">
+                <li class="filter">
+                    <a href="#">
+                        All
+                    </a>
+                </li>
+                <li class="filter">
+                    <a href="#">
+                        Active
+                    </a>
+                </li>
+                <li class="filter">
+                    <a href="#">
+                        Completed
+                    </a>
+                </li>
+            </ul>
+            <button class="clear-completed">Clear completed</button>
+        </div>
+
+    </div>
+
+</div>
+<script src="manifest.js"></script>
+<script src="vendor.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

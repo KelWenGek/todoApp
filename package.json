@@ -1,0 +1,48 @@
+{
+  "name": "webpack-workflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev-todo": "NODE_ENV=development webpack-dev-server --config ./webpack.config.babel.js --progress --hot --inline",
+    "build-todo": "rm -rf ./todo/dist/* && NODE_ENV=production webpack --config ./webpack.config.babel.js --progress"
+  },
+  "author": "kel",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-vue-jsx": "^3.3.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.26.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.2",
+    "style-loader": "^0.13.1",
+    "stylelint": "^7.7.1",
+    "url-loader": "^0.5.7",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.9",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-merge": "^2.4.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "underscore": "^1.8.3",
+    "vue": "^2.1.9",
+    "vuex": "^2.1.1"
+  }
+}
