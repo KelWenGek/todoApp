@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-vueTodo": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.babel.js --progress --hot --inline",
+    "dev-todo": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.babel.js --progress --hot --inline",
     "build-todo": "rm -rf ./todo/dist/* && NODE_ENV=production webpack --config ./webpack.config.babel.js --progress"
   },
   "author": "kel",
@@ -42,6 +42,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-immutable": "^3.0.11",
     "underscore": "^1.8.3",
     "vue": "^2.1.9",
     "vuex": "^2.1.1"

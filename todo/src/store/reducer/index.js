@@ -1,6 +1,6 @@
 import {action_type, APP_KEY, FILTER_TYPE} from '../../utils/constant.js';
 import {Utils} from '../../utils/utils.js';
-import {combineReducers} from 'redux';
+import {combineReducers} from 'redux-immutable';
 
 function visibilityFilter(state = FILTER_TYPE.All, action) {
     switch (action.type) {
@@ -23,22 +23,23 @@ function editing(state = null, action) {
     }
 }
 
-
 function todos(state = Utils.store(APP_KEY), action) {
 
+
+    //add a todo
     switch (action.type) {
         case action_type.ADD_TODO:
-
-
             let todos = [
                 ...state, {
                     id: action.id,
                     text: action.text,
                     completed: false
                 }
-            ]
+            ];
+
             Utils.store(APP_KEY, todos);
             return todos;
+
         case action_type.CLEAR_COMPLETED:
             let clearedTodos = state.filter(todo => !todo.completed);
             Utils.store(APP_KEY, clearedTodos);
@@ -67,23 +68,21 @@ function todos(state = Utils.store(APP_KEY), action) {
                 return todo;
             });
 
-
         case action_type.TOGGLE_ALL_TODO:
 
             return Array.from(state, todo => {
                 todo.completed = !action.isToggleAll;
                 return todo;
-            })
+            });
         default:
             return state;
     }
 
 }
 
-
 export const todoApp = combineReducers({
     todos,
-    editing,
+    // editing,
     visibilityFilter
 });
 

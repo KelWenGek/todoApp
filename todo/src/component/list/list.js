@@ -17,7 +17,6 @@ function getVisibleTodos(todos, filter) {
 
 }
 
-
 class TodoList extends React.Component {
 
     constructor(props) {
@@ -30,9 +29,8 @@ class TodoList extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextState.editing !== this.state.editing || nextProps.todos !== this.props.todos;
+        return nextState.editing !== this.state.editing || nextProps.todos !== this.props.todos || nextProps.activeFilter != this.props.activeFilter;
     }
-
 
     onEdit(id, val) {
         if (val) {
@@ -45,21 +43,17 @@ class TodoList extends React.Component {
             }));
         }
 
-
     }
 
-
     render() {
-
 
         let {onToggle, onEdit, onSave, onDestroy, onToggleAll, todos, activeFilter}=this.props;
 
         let visibleTodos = getVisibleTodos(todos, activeFilter);
 
-
         let completedCount = todos.filter(todo => todo.completed).length;
 
-        let isToggleAll = todos.length != 0 && completedCount == todos.length ? true : false;
+        let isToggleAll = todos.length != 0 && completedCount == todos.length;
         return (
             <div className={style.main}>
                 <input type="checkbox" className={style['toggle-all']} checked={isToggleAll}
@@ -95,6 +89,5 @@ class TodoList extends React.Component {
         );
     };
 }
-
 
 export default TodoList;

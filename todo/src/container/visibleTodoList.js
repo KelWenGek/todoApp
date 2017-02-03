@@ -4,10 +4,10 @@ import TodoList from '../component/list/list.js';
 
 
 function mapStateToProps(state) {
-
+    console.log(state);
     return {
-        activeFilter: state.visibilityFilter,
-        todos: state.todos
+        activeFilter: state.get('visibilityFilter'),
+        todos: state.get('todos')
         // editing: state.editing
 
     }

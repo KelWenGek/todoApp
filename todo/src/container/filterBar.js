@@ -7,8 +7,8 @@ import TodoFooter from '../component/footer/footer.js';
 
 function mapStateToProps(state, ownProps) {
     return {
-        todos: state.todos,
-        activeFilter: state.visibilityFilter
+        todos: state.get('todos'),
+        activeFilter: state.get('visibilityFilter')
     }
 }
 
