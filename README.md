@@ -1,2 +1,2 @@
 # todoApp
-todo app with react or vue
+1.todo app with react or vue
