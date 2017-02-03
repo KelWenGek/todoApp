@@ -25,56 +25,63 @@ function editing(state = null, action) {
 
 function todos(state = Utils.store(APP_KEY), action) {
 
-
-    //add a todo
     switch (action.type) {
+        //add a todo
         case action_type.ADD_TODO:
-            let todos = [
-                ...state, {
+
+            state.some(todo => todo.text == action.text) || (
+                state = state.add({
                     id: action.id,
                     text: action.text,
                     completed: false
-                }
-            ];
-
-            Utils.store(APP_KEY, todos);
-            return todos;
+                })
+            );
+            Utils.store(APP_KEY, state.toArray());
+            return state;
 
         case action_type.CLEAR_COMPLETED:
-            let clearedTodos = state.filter(todo => !todo.completed);
-            Utils.store(APP_KEY, clearedTodos);
-            return clearedTodos;
+
+            state = state.filter(todo => !todo.completed);
+            Utils.store(APP_KEY, state.toArray());
+            return state;
         case action_type.SAVE_TODO:
-            let edited_todos = Array.from(state, todo => {
+
+            state = state.map(todo => {
                 if (action.id === todo.id) {
                     todo.text = action.text
                 }
                 return todo;
             });
-            Utils.store(APP_KEY, edited_todos);
-            return edited_todos;
+
+            Utils.store(APP_KEY, state.toArray());
+            return state;
 
         case action_type.DESTROY_TODO:
-            let destroy_todos = state.filter(todo => todo.id !== action.id);
-            Utils.store(APP_KEY, destroy_todos);
-            return destroy_todos;
+            state = state.filter(todo => todo.id !== action.id);
+            Utils.store(APP_KEY, state.toArray());
+            return state;
 
         case action_type.TOGGLE_TODO:
-            let toggled_todos = Array.from(state, todo => {
+
+            state = state.map(todo => {
                 if (action.id === todo.id) {
                     todo.completed = !todo.completed;
                 }
                 return todo;
             });
-            Utils.store(APP_KEY, toggled_todos);
-            return toggled_todos;
+            Utils.store(APP_KEY, state.toArray());
+            return state;
         case action_type.TOGGLE_ALL_TODO:
-            let toggled_all_todos = Array.from(state, todo => {
+
+            state = state.map(todo => {
+
                 todo.completed = !action.isToggleAll;
+
                 return todo;
             });
-            Utils.store(APP_KEY, toggled_all_todos);
-            return toggled_all_todos;
+            Utils.store(APP_KEY, state.toArray());
+            return state;
+
         default:
             return state;
     }
