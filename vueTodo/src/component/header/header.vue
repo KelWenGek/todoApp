@@ -6,7 +6,6 @@
 </template>
 <style lang="less" src="./header.less" scoped>
 
-
 </style>
 <script>
 
@@ -16,7 +15,7 @@
         name: 'todo-header',
         data(){
             return {
-                msg: 'hello vue'
+                msg: 'hello vue todo header'
             }
         },
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-todo": "NODE_ENV=development webpack-dev-server --config ./webpack.config.babel.js --progress --hot --inline",
+    "dev-vueTodo": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.babel.js --progress --hot --inline",
     "build-todo": "rm -rf ./todo/dist/* && NODE_ENV=production webpack --config ./webpack.config.babel.js --progress"
   },
   "author": "kel",
@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
