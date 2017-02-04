@@ -2,11 +2,9 @@ import style from '../component/header/header.less';
 import {ENTER_KEY} from '../utils/constant.js';
 import {addTodo} from '../store/action/index.js';
 import {connect} from 'react-redux';
-import TodoHeader from '../component/header/header.js';
 
 
 let AddTodo = ({dispatch}) => {
-
 
     return (
         <div>
@@ -32,8 +30,6 @@ let AddTodo = ({dispatch}) => {
         </div>
 
     );
-
-
 }
 
 

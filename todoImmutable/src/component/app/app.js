@@ -1,9 +1,6 @@
 import style from './app.less';
-
-import TodoHeader from '../header/header.js';
 import AddTodo from '../../container/todoAdd.js';
 import VisibleTodoList from '../../container/visibleTodoList.js';
-import TodoFooter from '../footer/footer.js';
 import FilterBar from '../../container/filterBar.js';
 class App extends React.Component {
 

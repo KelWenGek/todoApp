@@ -142,3 +142,54 @@
   box-sizing: border-box;
   font-smoothing: antialiased;
 }
+
+.bar {
+  position: absolute;
+  top: -65px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: none;
+  &.show {
+    display: block;
+  }
+
+  .search {
+    position: relative;
+    width: 100%;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 24px;
+    line-height: 1.4em;
+    box-sizing: border-box;
+    padding: 16px 60px 16px 60px;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+  }
+  .cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    cursor: pointer;
+    color: #777;
+  }
+
+}
+
+.filter {
+  width: 60px;
+  position: absolute;
+  top: -65px;
+  right: 0;
+  height: 65px;
+  text-align: center;
+  line-height: 65px;
+  cursor: pointer;
+  color: #777;
+}
+

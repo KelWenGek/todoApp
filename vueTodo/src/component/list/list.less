@@ -142,3 +142,19 @@
   box-sizing: border-box;
   font-smoothing: antialiased;
 }
+
+//列表过渡效果
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-fade-move{
+  transition: transform 1s;
+}

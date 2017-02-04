@@ -35,12 +35,7 @@ export const store = new Vuex.Store({
             });
             Utils.store(APP_KEY, state.todos);
         },
-        // [mutation_type.EDIT_TODO](state, {id}){
-        //     state.editing = id;
-        // },
-        // [mutation_type.SAVE_TODO](state){
-        //     state.editing = null;
-        // },
+
         [mutation_type.DESTROY_TODO](state, {id}){
             state.todos = state.todos.filter(todo => todo.id != id);
             Utils.store(APP_KEY, state.todos);

@@ -3,8 +3,8 @@
         <input type="checkbox" class="toggle-all" @change="toggleAll"
                :checked="isToggleAll" :disabled="todos.length==0">
 
-        <ul class="list">
-            <li v-for="todo in visibleTodos" class="item" :class="{completed:todo.completed,editing:editing==todo.id}">
+        <transition-group name="slide-fade" class="list" tag="ul">
+            <li v-for="todo in visibleTodos" key="todo.id" class="item" :class="{completed:todo.completed,editing:editing==todo.id}">
                 <div class="view">
                     <input type="checkbox" class="toggle" :checked="todo.completed" @change.stop="toggle(todo.id)">
                     <label class="text" @dblclick="edit(todo.id)">{{todo.text}}</label>
@@ -13,7 +13,7 @@
                 <input v-focus type="text" class="edit" v-model="todo.text" @blur="save(todo.id,$event)"
                        @keydown.enter="save(todo.id,$event)">
             </li>
-        </ul>
+        </transition-group>
     </div>
 </template>
 <style src="./list.less" lang="less" scoped>
@@ -78,16 +78,9 @@
             },
             edit(id){
                 this.editing = id;
-//                this.$store.commit({
-//                    type: mutation_type.EDIT_TODO,
-//                    id
-//                })
             },
             save(id, e){
                 this.editing = null;
-//                this.$store.commit({
-//                    type: mutation_type.SAVE_TODO
-//                })
                 let val = e.target.value.trim();
                 if (!val) {
                     this.destroy(id);

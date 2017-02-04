@@ -1,4 +1,4 @@
-import {Set} from 'immutable';
+import {Set,fromJS} from 'immutable';
 
 let Utils = {
     uuid(){

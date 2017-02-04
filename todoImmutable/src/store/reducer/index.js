@@ -11,20 +11,7 @@ function visibilityFilter(state = FILTER_TYPE.All, action) {
     }
 }
 
-function editing(state = null, action) {
-    switch (action.type) {
-        case action_type.EDIT_TODO:
-            return action.id;
-
-        case action_type.SAVE_TODO:
-            return null;
-        default:
-            return state;
-    }
-}
-
 function todos(state = Utils.store(APP_KEY), action) {
-
     switch (action.type) {
         //add a todo
         case action_type.ADD_TODO:
@@ -36,6 +23,7 @@ function todos(state = Utils.store(APP_KEY), action) {
                     completed: false
                 })
             );
+
             Utils.store(APP_KEY, state.toArray());
             return state;
 
@@ -90,7 +78,6 @@ function todos(state = Utils.store(APP_KEY), action) {
 
 export const todoApp = combineReducers({
     todos,
-    // editing,
     visibilityFilter
 });
 
