@@ -31,7 +31,7 @@ class TodoList extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.todos !== this.props.todos ||
-            nextProps.activeFilter != this.props.activeFilter ||
+	        nextProps.activeFilter !== this.props.activeFilter ||
             nextState.editing !== this.state.editing ||
             nextState.isSearching !== this.state.isSearching ||
             nextState.searchFilter !== this.state.searchFilter;
@@ -46,7 +46,7 @@ class TodoList extends React.Component {
     onEdit(id, val) {
         if (val) {
             this.setState((prevState) => ({
-                editing: null
+	            editing: null,
             }));
         } else {
             this.setState((prevState) => ({
@@ -124,6 +124,14 @@ class TodoList extends React.Component {
                             onSave={(text) => {
                                 onSave(todo.id, text);
                                 this.onEdit(todo.id, text);
+	                            {/*this.setState({*/
+	                            }
+	                            {/*isSearching:false,*/
+	                            }
+	                            {/*searchFilter:''*/
+	                            }
+	                            {/*});*/
+	                            }
                             }}
                             onDestroy={() => onDestroy(todo.id)}
                             editing={this.state.editing == todo.id}
